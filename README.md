@@ -505,3 +505,56 @@ All errors follow a consistent shape:
 |---|---|
 | **Name** | Tarush Chauhan |
 | **Email** | tarushchauhan19@gmail.com |
+
+
+curl -s http://localhost:3000/api/v1/teacher/offerings \
+
+curl -s http://localhost:3000/api/v1/teacher/offerings/$OFFERING_ID/sessions \
+
+curl -s http://localhost:3000/api/v1/parent/offerings \
+
+curl -s http://localhost:3000/api/v1/parent/bookings \
+
+curl -s -X POST http://localhost:3000/api/v1/parent/offerings/$OFFERING_ID/book \
+
+
+# 1. Health
+curl -s http://localhost:3000/api/v1/health
+ 
+# 2. Teacher offerings
+curl -s http://localhost:3000/api/v1/teacher/offerings \
+  -H "Authorization: Bearer $TEACHER_TOKEN"
+ 
+# 3. Teacher sessions
+curl -s http://localhost:3000/api/v1/teacher/offerings/$OFFERING_ID/sessions \
+  -H "Authorization: Bearer $TEACHER_TOKEN"
+ 
+# 4. ⭐ Parent browse (TIMEZONE MAGIC)
+curl -s http://localhost:3000/api/v1/parent/offerings \
+  -H "Authorization: Bearer $PARENT_TOKEN"
+ 
+# 5. Parent bookings
+curl -s http://localhost:3000/api/v1/parent/bookings \
+  -H "Authorization: Bearer $PARENT_TOKEN"
+ 
+# 6. Duplicate booking blocked
+curl -s -X POST http://localhost:3000/api/v1/parent/offerings/$OFFERING_ID/book \
+  -H "Authorization: Bearer $PARENT_TOKEN"
+ 
+# 7. ⭐ Conflict detection (TIME_CONFLICT)
+curl -s -X POST http://localhost:3000/api/v1/parent/offerings/$OFFERING2_ID/book \
+  -H "Authorization: Bearer $PARENT_TOKEN"
+
+  cd /workspaces/undo-school_backend_assignment/class-booking-service
+
+  # Set all variables again
+TEACHER_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4ZTIzMzdkLTM5MzQtNDQwMi1hMzIzLTNmOTZlOWQ1MWJkMCIsImVtYWlsIjoiYWxpY2VAdGVzdC5jb20iLCJyb2xlIjoidGVhY2hlciIsInRpbWV6b25lIjoiQW1lcmljYS9OZXdfWW9yayIsImlhdCI6MTc4MDA1NDI4MiwiZXhwIjoxNzgwNjU5MDgyfQ.zw9Ci7DmUzD2akbaOo9nSkU2iV-_iZ5Tne4HVwasTqM"
+PARENT_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhOWMzZjJkLWNiM2ItNDkwNS05NDA0LTk5NzllMGFhZjRhZiIsImVtYWlsIjoiYm9iQHRlc3QuY29tIiwicm9sZSI6InBhcmVudCIsInRpbWV6b25lIjoiQXNpYS9Lb2xrYXRhIiwiaWF0IjoxNzgwMDU0MzE3LCJleHAiOjE3ODA2NTkxMTd9.P9kWssNp72zXu60vVI2CKFv2hnKm7XzDTuAm2oafSCE"
+OFFERING_ID="cda127d8-dac2-41a7-97d5-a50684b579ba"
+OFFERING2_ID="c13268b6-1bcc-4e1e-9fd8-51cfc5687aa8"
+
+npm run dev &
+sleep 3
+
+curl -s http://localhost:3000/api/v1/teacher/offerings \
+  -H "Authorization: Bearer $TEACHER_TOKEN"
