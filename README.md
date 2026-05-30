@@ -54,8 +54,9 @@ class-booking-service/
 
 ---
 ## 🗂️ Project Structure
-![Project Structure](<img width="1440" height="900" alt="project-structure" src="https://github.com/user-attachments/assets/d9cf1c6c-4ef7-46b2-8f83-688fdf49661d" />
-)
+![Project Structure]
+<img width="1440" height="900" alt="project-structure" src="https://github.com/user-attachments/assets/d53786fd-1bb8-49d9-aad3-342abf0d91be" />
+
 
 
 ## 🗄️ Database Schema
@@ -203,7 +204,7 @@ POST /auth/login
 
 
 ## 👩‍🏫 Teacher APIs
-![Teacher Register API](teacher-register-api.png)
+![Teacher Register API]
 <img width="1440" height="900" alt="teacher-register-api" src="https://github.com/user-attachments/assets/013243ff-be57-4e05-bb77-9ca8c26ff3e5" />
 
 
@@ -418,7 +419,7 @@ GET /health
 ---
 
 ## 🌍 Timezone Handling
-![Timezone Conversion](timezone-conversion.png)
+![Timezone Conversion]
 <img width="1440" height="900" alt="timezone-conversion" src="https://github.com/user-attachments/assets/40de849a-6fd3-4653-a4d2-a190b0a4e67f" />
 
 ## 🔒 Concurrency & Conflict Handling
