@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: Class Offering Booking System API
+  version: 1.0.0
+  description: API documentation for offerings, sessions, bookings, conflict detection, timezone handling, and concurrent booking.
+servers:
+  - url: http://localhost:3000/api/v1
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: Server is running
+  /auth/register:
+    post:
+      summary: Register teacher or parent
+      responses:
+        "201":
+          description: User registered
+  /auth/login:
+    post:
+      summary: Login user
+      responses:
+        "200":
+          description: Login successful
+  /teacher/offerings:
+    post:
+      summary: Create offering
+      responses:
+        "201":
+          description: Offering created
+    get:
+      summary: View teacher offerings
+      responses:
+        "200":
+          description: Offerings returned
+  /teacher/offerings/{offeringId}/sessions:
+    post:
+      summary: Add sessions
+      parameters:
+        - name: offeringId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Sessions added
+    get:
+      summary: View offering sessions
+      parameters:
+        - name: offeringId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Sessions returned
+  /parent/offerings:
+    get:
+      summary: Browse available offerings
+      responses:
+        "200":
+          description: Offerings returned with timezone conversion
+  /parent/offerings/{offeringId}/book:
+    post:
+      summary: Book an offering
+      parameters:
+        - name: offeringId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Booking confirmed
+        "409":
+          description: Booking conflict detected
+  /parent/bookings:
+    get:
+      summary: View parent bookings
+      responses:
+        "200":
+          description: Bookings returned
+  /parent/bookings/{bookingId}/cancel:
+    patch:
+      summary: Cancel booking
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Booking cancelled
