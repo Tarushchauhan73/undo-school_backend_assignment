@@ -53,6 +53,10 @@ class-booking-service/
 ```
 
 ---
+## 🗂️ Project Structure
+![Project Structure](<img width="1440" height="900" alt="project-structure" src="https://github.com/user-attachments/assets/d9cf1c6c-4ef7-46b2-8f83-688fdf49661d" />
+)
+
 
 ## 🗄️ Database Schema
 
@@ -196,6 +200,13 @@ POST /auth/login
 ```
 
 ---
+
+
+## 👩‍🏫 Teacher APIs
+![Teacher Register API](teacher-register-api.png)
+<img width="1440" height="900" alt="teacher-register-api" src="https://github.com/user-attachments/assets/013243ff-be57-4e05-bb77-9ca8c26ff3e5" />
+
+
 
 ### 👩‍🏫 Teacher Endpoints
 > Require `Authorization: Bearer <token>` with role `teacher`
@@ -406,6 +417,10 @@ GET /health
 
 ---
 
+## 🌍 Timezone Handling
+![Timezone Conversion](timezone-conversion.png)
+<img width="1440" height="900" alt="timezone-conversion" src="https://github.com/user-attachments/assets/40de849a-6fd3-4653-a4d2-a190b0a4e67f" />
+
 ## 🔒 Concurrency & Conflict Handling
 
 ### The Problem
@@ -435,6 +450,11 @@ WHERE existing.start_time < new.end_time
 Standard interval overlap condition — catches partial overlaps, full overlaps, and containment.
 
 ---
+
+## 🔒 Conflict Detection
+![Conflict Detection](conflict-detection.png)
+
+<img width="1109" height="231" alt="conflict-detection" src="https://github.com/user-attachments/assets/deeb50b0-2622-4c8b-8ae3-fcb7e7169a1b" />
 
 ## ❌ Error Response Format
 
